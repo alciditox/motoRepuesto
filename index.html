@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <!-- Metadatos para Redes Sociales y WhatsApp -->
+  <meta property="og:title" content="MotoData VE | Repuestos y Specs">
+  <meta property="og:description"
+    content="Consulta rápida de repuestos genéricos y especificaciones para Toro Rex, R3X y Bera GR.">
+  <meta property="og:image" content="https://i.ibb.co/m5NPSM5Q/Screenshot-1.png">
+  <meta property="og:url" content="https://motodata-ve.ingenieroalcides.workers.dev/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://i.ibb.co/m5NPSM5Q/Screenshot-1.png">
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏍️</text></svg>">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>MotoData VE | Repuestos y Especificaciones de Motos en Venezuela</title>
+  <meta name="description"
+    content="MotoData VE: consulta especificaciones técnicas óptimas y repuestos compatibles (originales y genéricos) para motos populares en Venezuela como Toro Rex 250, R3X 250 y Bera GR." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            blood: { 400: '#ef4444', 500: '#dc2626', 600: '#b91c1c', 700: '#991b1b', 800: '#7f1d1d', 900: '#450a0a' },
+            asphalt: { 950: '#070707', 900: '#0d0d0f', 850: '#131316', 800: '#1a1a1e', 700: '#26262b' },
+          },
+          boxShadow: {
+            blood: '0 0 0 1px rgba(220,38,38,.25), 0 10px 30px -10px rgba(220,38,38,.45)',
+          },
+          keyframes: {
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(12px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            pulseRed: { '0%,100%': { opacity: .55 }, '50%': { opacity: 1 } },
+          },
+          animation: {
+            fadeUp: 'fadeUp .45s cubic-bezier(.2,.8,.2,1) both',
+            pulseRed: 'pulseRed 2.4s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background:
+        radial-gradient(1200px 500px at 50% -200px, rgba(185, 28, 28, .28), transparent 70%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, .012) 0 2px, transparent 2px 8px),
+        #070707;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(26, 26, 30, .85), rgba(13, 13, 15, .85));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .stripe {
+      background: repeating-linear-gradient(-45deg, #b91c1c 0 10px, #0d0d0f 10px 20px);
+    }
+
+    select {
+      background-image: none;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      color: #fff;
+    }
+
+    .tab-btn[aria-selected="true"] .tab-indicator {
+      transform: scaleX(1);
+    }
+
+    .card {
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(220, 38, 38, .55);
+      box-shadow: 0 0 0 1px rgba(220, 38, 38, .25), 0 14px 30px -14px rgba(220, 38, 38, .6);
+    }
+
+    .field {
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field:focus {
+      outline: none;
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, .25);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0d0d0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #7f1d1d;
+      border-radius: 8px;
+    }
+
+    /* Tipografía para artículos y textos legales */
+    .prose-moto h3 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 1.4rem 0 .5rem;
+    }
+
+    .prose-moto p,
+    .prose-moto li {
+      font-size: .9rem;
+      line-height: 1.75;
+      color: #a1a1aa;
+    }
+
+    .prose-moto p+p {
+      margin-top: .8rem;
+    }
+
+    .prose-moto ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin: .6rem 0;
+    }
+
+    .prose-moto li::marker {
+      color: #dc2626;
+    }
+
+    .prose-moto strong {
+      color: #e4e4e7;
+    }
+
+    .prose-moto a {
+      color: #ef4444;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen font-sans text-zinc-200 antialiased selection:bg-blood-600 selection:text-white">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 glass border-b border-white/5">
+    <div class="stripe h-1 w-full opacity-80"></div>
+    <div class="mx-auto max-w-5xl px-4 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <a href="#" class="flex items-center gap-3 group" aria-label="MotoData VE inicio">
+        <span
+          class="relative grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-blood-500 to-blood-800 shadow-blood">
+          <svg viewBox="0 0 24 24" class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="5.5" cy="17" r="3.5" />
+            <circle cx="18.5" cy="17" r="3.5" />
+            <path d="M15 6h3l2 4M9 17h5l3-7H11L8 6H5M5.5 17 9 10h6" />
+          </svg>
+          <span class="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-blood-400 animate-pulseRed"></span>
+        </span>
+        <div class="leading-none">
+          <h1 class="font-display text-3xl sm:text-4xl tracking-wider text-white">Moto<span
+              class="text-blood-500">Data</span> <span class="text-zinc-400">VE</span></h1>
+          <p class="text-[11px] uppercase tracking-[.25em] text-zinc-500 mt-1">Specs & Repuestos</p>
+        </div>
+      </a>
+
+      <!-- Selector de moto + botón Instalar App -->
+      <div class="flex w-full items-center gap-2 sm:w-auto">
+        <label for="moto-select" class="sr-only">Selecciona el modelo de moto</label>
+        <div class="relative min-w-0 flex-1 sm:w-72 sm:flex-none">
+          <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-blood-500"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <select id="moto-select"
+            class="field appearance-none w-full rounded-xl border border-white/10 bg-asphalt-800 pl-10 pr-10 py-3 text-sm font-semibold text-white cursor-pointer">
+            <option value="toro-rex-250">Toro Rex 250</option>
+            <option value="r3x-250">R3X 250</option>
+            <option value="bera-gr">Bera GR</option>
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+
+        <button id="btn-instalar" type="button" onclick="handleInstallClick()" aria-haspopup="dialog"
+          aria-controls="installModal"
+          class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white text-sm font-semibold py-2 px-4 rounded-xl flex items-center gap-2 shrink-0 self-stretch whitespace-nowrap transition active:scale-95">
+          <svg class="h-4 w-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M5 21h14" />
+          </svg>
+          Instalar App
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 pb-16">
+
+    <!-- ===================== HERO MODELO ===================== -->
+    <section id="moto-hero"
+      class="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-asphalt-800 via-asphalt-900 to-blood-900/60 p-5 sm:p-7 animate-fadeUp">
+      <div class="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-blood-600/20 blur-3xl"></div>
+      <div class="relative flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p id="moto-brand" class="text-xs font-bold uppercase tracking-[.3em] text-blood-400">—</p>
+          <h2 id="moto-name" class="font-display text-5xl sm:text-6xl tracking-wide text-white leading-none mt-1">—</h2>
+          <p id="moto-desc" class="mt-2 max-w-xl text-sm text-zinc-400">—</p>
+        </div>
+        <div id="moto-badges" class="flex flex-wrap gap-2"></div>
+      </div>
+      <div id="placeholder-alert"
+        class="hidden relative mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-xs text-amber-200">
+        ⚠️ Datos de prueba: este modelo aún no ha sido verificado. ¡Ayúdanos aportando información abajo!
+      </div>
+    </section>
+
+    <!-- ===================== TABS ===================== -->
+    <nav class="mt-6" aria-label="Secciones de información">
+      <div role="tablist" class="grid grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-asphalt-900 p-1">
+        <button id="tab-repuestos" role="tab" aria-selected="true" aria-controls="panel-repuestos" data-tab="repuestos"
+          class="tab-btn relative rounded-xl px-1.5 sm:px-3 py-3 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wide text-zinc-500 transition-colors hover:text-zinc-200">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="hidden sm:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" />
+            </svg>
+            Repuestos <span class="hidden md:inline">Compatibles</span>
+          </span>
+          <span
+            class="tab-indicator absolute inset-x-3 bottom-1 h-0.5 origin-center scale-x-0 rounded-full bg-blood-500 transition-transform duration-300"></span>
+        </button>
+        <button id="tab-optimas" role="tab" aria-selected="false" aria-controls="panel-optimas" data-tab="optimas"
+          class="tab-btn relative rounded-xl px-1.5 sm:px-3 py-3 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wide text-zinc-500 transition-colors hover:text-zinc-200">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="hidden sm:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path
+                d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span class="hidden md:inline">Condiciones</span> Óptimas
+          </span>
+          <span
+            class="tab-indicator absolute inset-x-3 bottom-1 h-0.5 origin-center scale-x-0 rounded-full bg-blood-500 transition-transform duration-300"></span>
+        </button>
+        <button id="tab-mantenimiento" role="tab" aria-selected="false" aria-controls="panel-mantenimiento"
+          data-tab="mantenimiento"
+          class="tab-btn relative rounded-xl px-1.5 sm:px-3 py-3 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wide text-zinc-500 transition-colors hover:text-zinc-200">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="hidden sm:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+              <rect x="9" y="3" width="6" height="4" rx="1" />
+              <path d="m9 14 2 2 4-4" />
+            </svg>
+            Mantenimiento <span class="hidden md:inline">Preventivo</span>
+          </span>
+          <span
+            class="tab-indicator absolute inset-x-3 bottom-1 h-0.5 origin-center scale-x-0 rounded-full bg-blood-500 transition-transform duration-300"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===================== BUSCADOR RÁPIDO ===================== -->
+    <div class="relative mt-4">
+      <label for="buscador-repuestos" class="sr-only">Buscar repuesto</label>
+      <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-blood-500"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </svg>
+      <input type="text" id="buscador-repuestos" placeholder="Buscar repuesto (Ej. pastillas, cadena, bastones)..."
+        autocomplete="off" spellcheck="false" enterkeyhint="search"
+        class="field w-full rounded-xl border border-white/10 bg-asphalt-900 pl-12 pr-12 py-3.5 text-sm text-white placeholder-zinc-600" />
+      <button id="buscador-limpiar" type="button" aria-label="Limpiar búsqueda"
+        class="hidden absolute right-3 top-1/2 -translate-y-1/2 grid h-7 w-7 place-items-center rounded-lg bg-white/5 text-zinc-400 transition hover:bg-blood-600 hover:text-white">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <p id="buscador-contador" class="mt-2 min-h-[1rem] text-[11px] uppercase tracking-widest text-zinc-500"
+      aria-live="polite"></p>
+
+    <!-- Panel: Repuestos Compatibles -->
+    <section id="panel-repuestos" role="tabpanel" aria-labelledby="tab-repuestos" class="mt-3">
+      <div class="mb-3 flex items-center gap-4 text-[11px] uppercase tracking-widest text-zinc-500">
+        <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-white"></span>Original</span>
+        <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-blood-500"></span>Genérico
+          compatible</span>
+      </div>
+      <div id="repuestos-grid" class="space-y-7"></div>
+    </section>
+
+    <!-- Panel: Condiciones Óptimas -->
+    <section id="panel-optimas" role="tabpanel" aria-labelledby="tab-optimas" class="mt-3 hidden">
+      <div id="optimas-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+    </section>
+
+    <!-- Panel: Mantenimiento Preventivo -->
+    <section id="panel-mantenimiento" role="tabpanel" aria-labelledby="tab-mantenimiento" class="mt-3 hidden">
+      <article id="mantenimiento-content"
+        class="prose-moto animate-fadeUp rounded-2xl border border-white/10 bg-asphalt-900/80 p-5 sm:p-8">
+        <header class="mb-2">
+          <p class="text-xs font-bold uppercase tracking-[.3em] text-blood-400">Guía técnica</p>
+          <h2 class="font-display text-4xl sm:text-5xl tracking-wide text-white leading-none mt-1">Mantenimiento
+            Preventivo para Motos 250cc</h2>
+          <p class="mt-3 text-xs text-zinc-500">Aplica a Toro Rex 250, R3X 250, Bera GR y la mayoría de motos
+            monocilíndricas de 250cc refrigeradas por aire.</p>
+        </header>
+
+        <section class="filtrable">
+          <p>Una moto de 250cc bien mantenida puede superar fácilmente los 50.000 km sin abrir el motor. En Venezuela,
+            donde el calor, el tráfico pesado, las lluvias tropicales y las vías en mal estado castigan la mecánica a
+            diario, el <strong>mantenimiento preventivo</strong> no es un lujo: es la forma más económica de evitar
+            averías costosas, conseguir repuestos a tiempo y, sobre todo, rodar seguro. Revisar tres puntos críticos
+            —aceite, cadena y frenos— te tomará menos de 20 minutos a la semana y marcará la diferencia.</p>
+        </section>
+
+        <section class="filtrable">
+          <h3>1. Cambio de aceite: la sangre del motor</h3>
+          <p>Los motores monocilíndricos refrigerados por aire trabajan a temperaturas muy altas, especialmente en
+            colas o subidas. El aceite no solo lubrica: también enfría el cilindro, limpia residuos y protege el
+            embrague, que en estas motos trabaja bañado en el mismo aceite. Con aceite <strong>semi-sintético
+              10W40 o 15W40</strong>, lo recomendable es cambiarlo cada <strong>1.500 a 2.000 km</strong>; con
+            full sintético puedes extenderlo hasta 2.500–3.000 km si el uso es moderado. Si usas la moto para
+            delivery, mototaxi o trochas, acorta los intervalos.</p>
+          <p>Revisa el nivel cada semana con la moto en posición vertical y el motor tibio, usando la varilla o la
+            mirilla. Aprovecha cada cambio para limpiar la malla del filtro y el tapón de drenaje (muchos traen
+            imán que retiene limaduras). Un aceite oscuro y espeso, olor a quemado o un embrague que “patina” son
+            señales claras de que el cambio está atrasado.</p>
+        </section>
+
+        <section class="filtrable">
+          <h3>2. Tensión y lubricación de la cadena</h3>
+          <p>El kit de arrastre (cadena, piñón y corona) transmite toda la potencia a la rueda trasera. Una cadena
+            demasiado floja puede saltarse de los dientes o golpear el basculante; una demasiado tensa sobrecarga las
+            rolineras de la caja y de la rueda. La holgura correcta en la mayoría de las 250cc doble propósito está
+            entre <strong>25 y 35 mm</strong> medidos en el punto medio del tramo inferior, con la moto apoyada y sin
+            carga. Ajusta siempre los dos tensores por igual para mantener la rueda alineada.</p>
+          <p>Limpia la cadena con kerosene o desengrasante y lubrícala cada <strong>300 a 500 km</strong>, y
+            siempre después de rodar bajo lluvia o en barro. Si notas eslabones rígidos, dientes de la corona en forma
+            de “gancho” o que la cadena se estira por encima de los límites del tensor, cambia el
+            <strong>kit completo</strong>: montar una cadena nueva sobre un piñón gastado la destruye en pocas
+            semanas.
+          </p>
+        </section>
+
+        <section class="filtrable">
+          <h3>3. Revisión del sistema de frenos</h3>
+          <p>Los frenos son el sistema de seguridad más importante de la moto. Inspecciona el espesor de las
+            <strong>pastillas</strong> cada 1.000 km: si el material de fricción tiene menos de 2 mm, reemplázalas
+            de inmediato para no dañar el disco. Verifica también que los discos no estén rayados, torcidos ni por
+            debajo del espesor mínimo grabado en su superficie.
+          </p>
+          <p>El <strong>líquido de frenos</strong> (DOT 3 o DOT 4 según la tapa de la bomba) absorbe humedad con el
+            tiempo, lo que reduce su punto de ebullición y produce una maneta “esponjosa”. Mantén el nivel entre las
+            marcas MIN y MAX y cámbialo completo cada 1 a 2 años, o antes si se ve oscuro. Revisa que las mangueras no
+            tengan grietas ni fugas y purga el sistema cada vez que lo abras.</p>
+        </section>
+
+        <section class="filtrable">
+          <h3>4. Otros puntos que no debes olvidar</h3>
+          <ul>
+            <li><strong>Presión de cauchos:</strong> revísala en frío una vez por semana (ver Condiciones Óptimas).
+            </li>
+            <li><strong>Filtro de aire:</strong> límpialo cada 3.000 km, o con más frecuencia si ruedas en tierra o
+              polvo.</li>
+            <li><strong>Bujía:</strong> inspecciona su color y calibración cada 5.000 km; un electrodo grisáceo
+              indica buena combustión.</li>
+            <li><strong>Guayas:</strong> lubrica las guayas de clutch y acelerador para evitar que se traben o
+              revienten.</li>
+            <li><strong>Batería y luces:</strong> limpia los bornes y verifica luz de freno, cruces y faro antes de
+              rodar de noche.</li>
+            <li><strong>Calibración de válvulas:</strong> revísala cada 4.000–5.000 km con el motor frío.</li>
+          </ul>
+        </section>
+
+        <section class="filtrable">
+          <h3>Tabla rápida de intervalos</h3>
+          <div class="mt-3 overflow-x-auto rounded-xl border border-white/10">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-blood-900/40 text-[11px] uppercase tracking-widest text-blood-300">
+                <tr>
+                  <th class="px-4 py-2.5">Tarea</th>
+                  <th class="px-4 py-2.5">Intervalo sugerido</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5 text-zinc-300">
+                <tr>
+                  <td class="px-4 py-2.5">Nivel de aceite y presión de cauchos</td>
+                  <td class="px-4 py-2.5">Semanal</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Lubricar y tensar cadena</td>
+                  <td class="px-4 py-2.5">300 – 500 km</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Revisar pastillas de freno</td>
+                  <td class="px-4 py-2.5">1.000 km</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Cambio de aceite (semi-sintético)</td>
+                  <td class="px-4 py-2.5">1.500 – 2.000 km</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Limpieza de filtro de aire</td>
+                  <td class="px-4 py-2.5">3.000 km</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Calibración de válvulas</td>
+                  <td class="px-4 py-2.5">4.000 – 5.000 km</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5">Cambio de líquido de frenos</td>
+                  <td class="px-4 py-2.5">1 – 2 años</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-xs text-zinc-500">Los intervalos son orientativos. Consulta siempre el manual del
+            fabricante y a un mecánico de confianza, ya que el uso, el clima y la calidad de los repuestos pueden
+            modificar estas recomendaciones.</p>
+        </section>
+      </article>
+    </section>
+
+    <!-- Sin resultados -->
+    <div id="sin-resultados"
+      class="hidden mt-3 rounded-2xl border border-dashed border-blood-600/40 bg-blood-900/10 px-5 py-8 text-center">
+      <p class="font-display text-2xl tracking-wide text-white">Sin coincidencias</p>
+      <p class="mt-1 text-sm text-zinc-400">No encontramos "<span id="sin-resultados-term"
+          class="text-blood-400"></span>". ¿Lo conoces? <a href="#aportar"
+          class="font-semibold text-white underline decoration-blood-500 underline-offset-4 hover:text-blood-400">Apórtalo
+          aquí</a>.</p>
+    </div>
+
+    <!-- ===================== FORMULARIO ===================== -->
+    <section id="aportar" class="mt-14" aria-labelledby="aportar-title">
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 glass p-5 sm:p-7">
+        <div class="absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-blood-700/20 blur-3xl"></div>
+        <div class="relative">
+          <h2 id="aportar-title" class="font-display text-4xl tracking-wide text-white">Aportar un <span
+              class="text-blood-500">Repuesto</span></h2>
+          <p class="mt-1 text-sm text-zinc-400">¿Sabes de una pieza compatible que funcione? Compártela con la comunidad
+            motera.</p>
+
+          <form id="aporte-form" action="https://api.web3forms.com/submit" method="POST"
+            class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="hidden" name="access_key" value="71aa6647-ae15-4b95-a93e-46afd6d0fc41">
+            <input type="hidden" name="subject" value="Nuevo aporte de repuesto - MotoData VE">
+            <input type="hidden" name="from_name" value="MotoData VE">
+            <input type="hidden" id="form-modelo" name="modelo" value="toro-rex-250">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div>
+              <label for="f-nombre"
+                class="mb-1.5 block text-xs font-bold uppercase tracking-widest text-zinc-400">Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" required maxlength="60" placeholder="Ej: José Pérez"
+                class="field w-full rounded-xl border border-white/10 bg-asphalt-950/70 px-4 py-3 text-sm text-white placeholder-zinc-600" />
+            </div>
+            <div>
+              <label for="f-correo"
+                class="mb-1.5 block text-xs font-bold uppercase tracking-widest text-zinc-400">Correo <span
+                  class="normal-case tracking-normal font-medium text-zinc-600">(opcional)</span></label>
+              <input id="f-correo" name="Correo" type="email" maxlength="100" autocomplete="email"
+                placeholder="Tu Correo Electrónico (Opcional)"
+                class="field w-full rounded-xl border border-white/10 bg-asphalt-950/70 px-4 py-3 text-sm text-white placeholder-zinc-600" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-repuesto"
+                class="mb-1.5 block text-xs font-bold uppercase tracking-widest text-zinc-400">Repuesto</label>
+              <input id="f-repuesto" name="repuesto" type="text" required maxlength="80"
+                placeholder="Ej: Filtro de aceite"
+                class="field w-full rounded-xl border border-white/10 bg-asphalt-950/70 px-4 py-3 text-sm text-white placeholder-zinc-600" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-sugerencia"
+                class="mb-1.5 block text-xs font-bold uppercase tracking-widest text-zinc-400">Sugerencia</label>
+              <textarea id="f-sugerencia" name="sugerencia" rows="4" required maxlength="600"
+                placeholder="Ej: El filtro de la GN125 le sirve sin modificaciones..."
+                class="field w-full resize-none rounded-xl border border-white/10 bg-asphalt-950/70 px-4 py-3 text-sm text-white placeholder-zinc-600"></textarea>
+            </div>
+            <div class="sm:col-span-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
+              <p class="text-xs text-zinc-500">Modelo: <span id="form-modelo-label"
+                  class="font-semibold text-zinc-300">Toro Rex 250</span></p>
+              <button id="btn-enviar" type="submit"
+                class="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blood-600 to-blood-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-blood transition hover:brightness-110 active:scale-[.98]">
+                Enviar aporte
+                <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="adsterra-banner" class="w-full flex justify-center py-4">
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER LEGAL ===================== -->
+  <footer class="border-t border-white/5 bg-asphalt-950/80 py-8 text-center text-xs text-zinc-600">
+    <nav aria-label="Enlaces legales" class="mb-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+      <a id="link-privacidad" href="#privacidad" data-legal="privacidad"
+        class="font-semibold uppercase tracking-widest text-zinc-400 transition hover:text-blood-400">Política de
+        Privacidad</a>
+      <span class="h-1 w-1 rounded-full bg-blood-600" aria-hidden="true"></span>
+      <a id="link-terminos" href="#terminos" data-legal="terminos"
+        class="font-semibold uppercase tracking-widest text-zinc-400 transition hover:text-blood-400">Términos de
+        Uso</a>
+      <span class="h-1 w-1 rounded-full bg-blood-600" aria-hidden="true"></span>
+      <a href="#aportar"
+        class="font-semibold uppercase tracking-widest text-zinc-400 transition hover:text-blood-400">Contacto</a>
+    </nav>
+    <p>© <span id="year"></span> <span class="font-semibold text-zinc-400">MotoData VE</span> · Hecho para la comunidad
+      motera venezolana 🇻🇪</p>
+    <p class="mt-1">Verifica siempre con tu mecánico de confianza antes de instalar cualquier repuesto.</p>
+  </footer>
+
+  <!-- ===================== MODAL LEGAL ===================== -->
+  <dialog id="legal-modal" aria-labelledby="legal-title"
+    class="m-auto w-[min(92vw,720px)] max-h-[85vh] overflow-hidden rounded-2xl border border-white/10 bg-asphalt-900 p-0 text-zinc-300 shadow-2xl backdrop:bg-black/80 backdrop:backdrop-blur-sm open:animate-fadeUp">
+    <div class="flex max-h-[85vh] flex-col">
+      <div class="stripe h-1 w-full opacity-80"></div>
+      <header class="flex items-center justify-between gap-4 border-b border-white/5 px-5 py-4 sm:px-7">
+        <h2 id="legal-title" class="font-display text-3xl tracking-wide text-white">Política de Privacidad</h2>
+        <button id="legal-cerrar" type="button" aria-label="Cerrar"
+          class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 text-zinc-400 transition hover:bg-blood-600 hover:text-white">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="legal-body" class="prose-moto overflow-y-auto px-5 py-5 sm:px-7">
+        <!-- Política de Privacidad -->
+        <article id="legal-privacidad" data-legal-doc="privacidad">
+          <p class="text-xs text-zinc-500">Última actualización: 8 de octubre de 2026</p>
+          <p>En <strong>MotoData VE</strong> respetamos tu privacidad. Esta política explica qué información se
+            recopila cuando visitas este sitio web, cómo se utiliza y qué opciones tienes. Al usar el sitio aceptas
+            las prácticas descritas a continuación.</p>
+
+          <h3>1. Información que recopilamos</h3>
+          <p>MotoData VE es una herramienta de consulta técnica que <strong>no requiere registro</strong> y no
+            solicita datos sensibles (cédula, datos bancarios, dirección, salud, etc.). Únicamente se procesa:</p>
+          <ul>
+            <li><strong>Datos del formulario “Aportar un Repuesto”:</strong> nombre, correo electrónico (opcional) y
+              el texto de tu sugerencia, enviados voluntariamente por ti.</li>
+            <li><strong>Datos técnicos de navegación:</strong> tipo de navegador, dispositivo, idioma, páginas
+              visitadas y dirección IP aproximada, recogidos de forma automática por el servidor y por servicios de
+              terceros como los proveedores de publicidad.</li>
+          </ul>
+
+          <h3>2. Uso de la información</h3>
+          <p>Usamos los datos del formulario solo para revisar, verificar y publicar repuestos compatibles, y para
+            responderte si dejaste tu correo. Los datos técnicos se usan para mantener el sitio funcionando, medir
+            su rendimiento y mostrar publicidad. <strong>No vendemos ni alquilamos</strong> tu información personal.
+          </p>
+
+          <h3>3. Cookies y publicidad (Google AdSense)</h3>
+          <p>Este sitio puede mostrar anuncios servidos por Google y otros proveedores. Estos terceros, incluido
+            Google, utilizan cookies para mostrar anuncios basados en tus visitas anteriores a este y otros sitios
+            web. El uso de cookies de publicidad permite a Google y a sus socios ofrecer anuncios en función de tu
+            navegación por Internet.</p>
+          <p>Puedes inhabilitar la publicidad personalizada en la <a href="https://adssettings.google.com"
+              target="_blank" rel="noopener">Configuración de anuncios de Google</a> o visitar <a
+              href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a> para
+            desactivar las cookies de otros proveedores. Más información en <a
+              href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">cómo usa Google
+              las cookies en publicidad</a>. También puedes bloquear o eliminar cookies desde la configuración de tu
+            navegador.</p>
+
+          <h3>4. Servicios de terceros</h3>
+          <p>El formulario de aportes se procesa a través de <strong>Web3Forms</strong>, que reenvía el mensaje por
+            correo electrónico al administrador. El sitio también carga recursos de Google Fonts y de redes de
+            distribución de contenido (CDN). Cada uno de estos servicios tiene su propia política de privacidad.</p>
+
+          <h3>5. Conservación y seguridad</h3>
+          <p>Los mensajes del formulario se conservan solo el tiempo necesario para evaluar el aporte. Aplicamos
+            medidas razonables (conexión cifrada HTTPS) para proteger la información, aunque ningún sistema en
+            Internet es 100% seguro.</p>
+
+          <h3>6. Tus derechos</h3>
+          <p>De acuerdo con el derecho de <em>habeas data</em> reconocido en el artículo 28 de la Constitución de la
+            República Bolivariana de Venezuela, puedes solicitar acceso, corrección o eliminación de los datos que
+            nos hayas enviado, escribiéndonos a través del formulario de contacto.</p>
+
+          <h3>7. Menores de edad</h3>
+          <p>El sitio no está dirigido a menores de 13 años ni recopila conscientemente información de ellos.</p>
+
+          <h3>8. Cambios en esta política</h3>
+          <p>Podemos actualizar esta política en cualquier momento. La fecha de la última actualización aparecerá
+            siempre al inicio de este documento.</p>
+        </article>
+
+        <!-- Términos de Uso -->
+        <article id="legal-terminos" data-legal-doc="terminos" class="hidden">
+          <p class="text-xs text-zinc-500">Última actualización: 8 de octubre de 2026</p>
+          <p>Bienvenido a <strong>MotoData VE</strong>. Al acceder y utilizar este sitio web aceptas los siguientes
+            Términos de Uso. Si no estás de acuerdo con ellos, te pedimos no utilizar el sitio.</p>
+
+          <h3>1. Naturaleza del servicio</h3>
+          <p>MotoData VE es una plataforma gratuita de consulta con fines <strong>informativos y
+              educativos</strong> que reúne especificaciones técnicas, repuestos genéricos compatibles y
+            recomendaciones de mantenimiento para motocicletas comercializadas en Venezuela. No somos fabricantes,
+            distribuidores ni talleres, y no vendemos repuestos.</p>
+
+          <h3>2. Exactitud de la información</h3>
+          <p>Los datos provienen de la experiencia de mecánicos, usuarios y aportes de la comunidad. Aunque nos
+            esforzamos por mantenerlos correctos, <strong>no garantizamos</strong> que sean exactos, completos o
+            aplicables a todas las versiones o años de cada modelo. Las compatibilidades pueden requerir
+            adaptaciones.</p>
+
+          <h3>3. Limitación de responsabilidad</h3>
+          <p>Cualquier reparación, modificación o instalación de repuestos basada en este sitio se realiza bajo tu
+            propia responsabilidad. Recomendamos verificar siempre con el manual del fabricante y un mecánico
+            calificado. MotoData VE no se hace responsable por daños a la motocicleta, lesiones personales,
+            pérdidas económicas o cualquier perjuicio derivado del uso de la información publicada.</p>
+
+          <h3>4. Aportes de usuarios</h3>
+          <p>Al enviar información mediante el formulario declaras que es veraz y nos autorizas a revisarla, editarla
+            y publicarla de forma gratuita. Nos reservamos el derecho de rechazar aportes falsos, ofensivos,
+            publicitarios o que infrinjan derechos de terceros.</p>
+
+          <h3>5. Publicidad y enlaces externos</h3>
+          <p>El sitio se financia mediante anuncios de terceros, como Google AdSense. No controlamos ni respaldamos
+            los productos o servicios anunciados, ni el contenido de los sitios externos enlazados. El tratamiento de
+            datos asociado se describe en nuestra <a href="#privacidad" data-legal="privacidad">Política de
+              Privacidad</a>.</p>
+
+          <h3>6. Propiedad intelectual</h3>
+          <p>El diseño, los textos, la recopilación de datos y la marca MotoData VE están protegidos. Puedes
+            compartir la información con fines personales y no comerciales citando la fuente. Las marcas y modelos
+            de motocicletas mencionados pertenecen a sus respectivos propietarios y se citan solo con fines
+            descriptivos.</p>
+
+          <h3>7. Uso adecuado</h3>
+          <p>Te comprometes a no utilizar el sitio para actividades ilícitas, enviar spam, intentar vulnerar su
+            seguridad o copiar masivamente su contenido mediante herramientas automatizadas.</p>
+
+          <h3>8. Modificaciones y legislación aplicable</h3>
+          <p>Podemos modificar estos términos o el contenido del sitio en cualquier momento. Estos Términos se rigen
+            por las leyes de la República Bolivariana de Venezuela.</p>
+        </article>
+      </div>
+
+      <footer class="flex justify-end border-t border-white/5 px-5 py-4 sm:px-7">
+        <button id="legal-entendido" type="button"
+          class="rounded-xl bg-gradient-to-r from-blood-600 to-blood-500 px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white shadow-blood transition hover:brightness-110 active:scale-[.98]">Entendido</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast"
+    class="pointer-events-none fixed bottom-5 left-1/2 z-50 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 rounded-xl border border-blood-500/40 bg-asphalt-850 px-5 py-3 text-sm font-semibold text-white shadow-blood">
+  </div>
+
+  <script>
+    /* =========================================================
+       BASE DE DATOS MOCKEADA
+       ========================================================= */
+    const motoDatabase = {
+      "toro-rex-250": {
+        nombre: "Toro Rex 250",
+        marca: "Toro",
+        descripcion: "Doble propósito de 250cc, muy popular en Venezuela por su versatilidad en ciudad y trocha.",
+        badges: ["250cc", "Monocilíndrica", "Doble propósito"],
+        placeholder: false,
+        optimas: [
+          { item: "Calibración de Válvulas", valor: "0.04~0.05 Admisión / 0.06 Escape" },
+          { item: "Aceite de Motor", valor: "10W40, 15W40~15W50 (Semi o Full sintético)" },
+          { item: "Rueda Delantera", valor: "90/90/21 - PSI 28" },
+          { item: "Rueda Trasera", valor: "120/80/18 ~ 4.60/90/18 - PSI 32" },
+          { item: "Rodamiento (Kit Arrastre)", valor: "Kit 14x43 (110-115Km/h) / Kit 15x43 (120-125Km/h)" },
+          { item: "Bujía Recomendada", valor: "NGK Iridium original" }
+        ],
+        repuestos: [
+          { categoria: "Kit Arrastre", pieza: "Cadena", generico: "428-132 (Reforzada con Oring)" },
+          { categoria: "Kit Arrastre", pieza: "Corona", generico: "Original 428 (cóncava) / TX Rojas 428 (plana)" },
+          { categoria: "Kit Arrastre", pieza: "Piñón", generico: "Horse 428 (con reborde o relieve)" },
+          { categoria: "Frenada", pieza: "Caliper Delantero", generico: "Arsen II" },
+          { categoria: "Frenada", pieza: "Bomba de Freno", generico: "TX 200" },
+          { categoria: "Frenada", pieza: "Mangueras de Freno", generico: "TX 150 (Frontal) / Speed 200 (Trasero)" },
+          { categoria: "Frenada", pieza: "Pastillas de Freno", generico: "Arsen II sin gancho (Del) / Arsen II con gancho (Tras)" },
+          { categoria: "Frenada", pieza: "Discos de Freno", generico: "GTS300, TX GT250 (Del) / BR200, Ava Mustang (Tras)" },
+          { categoria: "Estabilización", pieza: "Monoshock Ajustable", generico: "XTZ 125 / MD Lechuza, Kavak (resorte progresivo)" },
+          { categoria: "Estabilización", pieza: "Pistas", generico: "SBR - Horse (normales)" },
+          { categoria: "Estabilización", pieza: "Rolineras", generico: "(2) 6201RS (Del) / (2) 6302RS (Tras)" },
+          { categoria: "Estabilización", pieza: "Estoperas de barras", generico: "Arsen II, Loncin Rover (37x50x11)" },
+          { categoria: "Estabilización", pieza: "Aceite de barras", generico: "300ml por barra (FORK OIL 5w o 15w)" },
+          { categoria: "Estabilización", pieza: "Eje delantero", generico: "Eje central de Horse (Largo 28.5cm x 11.8mm)" },
+          { categoria: "Rendimiento", pieza: "Batería", generico: "Jaguar (12V 6.5Amp)" },
+          { categoria: "Rendimiento", pieza: "Bujía", generico: "NGK - D8EA" },
+          { categoria: "Rendimiento", pieza: "Crochera completa", generico: "TX 200 (modelo viejo - 6 tornillos)" },
+          { categoria: "Rendimiento", pieza: "Discos de Clutch", generico: "YB125cc, RX100cc / TX 200 (modelo viejo)" },
+          { categoria: "Rendimiento", pieza: "Carburador & CDI", generico: "Carburador PZ30 / CDI Original" },
+          { categoria: "Rendimiento", pieza: "Filtro de aire", generico: "MD Lechuza, Kavak, Tigrito" },
+          { categoria: "Rendimiento", pieza: "Guayas", generico: "TX 150, DT 200 (Aceleración) / Horse, TX 150 (Clutch)" },
+          { categoria: "Rendimiento", pieza: "Martillos", generico: "HJ Cool 2014 (Cabezales fijos)" },
+          { categoria: "Rendimiento", pieza: "Cadena de tiempo", generico: "Original / Bera Super DT" },
+          { categoria: "Extras", pieza: "Tensor y Patín de cadena", generico: "Kavak, MD Lechuza, DT 200 / Cualquier modelo enduro" },
+          { categoria: "Extras", pieza: "Tripas", generico: "90/90.21 (Delantera) / 41018 (Trasera)" },
+          { categoria: "Extras", pieza: "Tapón de Magneto", generico: "MD Lechuza, GN 125, EN 125" }
+        ]
+      },
+
+      "r3x-250": {
+        nombre: "R3X 250",
+        marca: "Placeholder",
+        descripcion: "Información de prueba. Datos pendientes de verificación por la comunidad.",
+        badges: ["250cc", "Datos de prueba"],
+        placeholder: true,
+        optimas: [
+          { icon: "valve", titulo: "Calibración de Válvulas", nota: "Pendiente por verificar.", items: [{ label: "Admisión", valor: "0.00 – 0.00 mm" }, { label: "Escape", valor: "0.00 – 0.00 mm" }] },
+          { icon: "oil", titulo: "Aceite de Motor", nota: "Pendiente por verificar.", items: [{ label: "Viscosidad", valor: "XXW-XX" }, { label: "Tipo", valor: "Por definir" }] },
+          { icon: "tire", titulo: "Presión de Cauchos", nota: "Pendiente por verificar.", items: [{ label: "Delantero", valor: "-- PSI" }, { label: "Trasero", valor: "-- PSI" }] },
+          { icon: "spark", titulo: "Bujía", nota: "Pendiente por verificar.", items: [{ label: "Marca", valor: "Por definir" }, { label: "Tipo", valor: "Por definir" }] }
+        ],
+        repuestos: [
+          { icon: "chain", pieza: "Cadena de Transmisión", original: "Por definir", generico: "Por definir" },
+          { icon: "brake", pieza: "Pastillas Freno Delantero", original: "Por definir", generico: "Por definir" },
+          { icon: "shock", pieza: "Monoshock", original: "Por definir", generico: "Por definir" },
+          { icon: "battery", pieza: "Batería", original: "Por definir", generico: "Por definir" }
+        ]
+      },
+
+      "bera-gr": {
+        nombre: "Bera GR",
+        marca: "Bera",
+        descripcion: "Información de prueba. Datos pendientes de verificación por la comunidad.",
+        badges: ["Datos de prueba"],
+        placeholder: true,
+        optimas: [
+          { icon: "valve", titulo: "Calibración de Válvulas", nota: "Pendiente por verificar.", items: [{ label: "Admisión", valor: "0.00 – 0.00 mm" }, { label: "Escape", valor: "0.00 – 0.00 mm" }] },
+          { icon: "oil", titulo: "Aceite de Motor", nota: "Pendiente por verificar.", items: [{ label: "Viscosidad", valor: "XXW-XX" }, { label: "Tipo", valor: "Por definir" }] },
+          { icon: "tire", titulo: "Presión de Cauchos", nota: "Pendiente por verificar.", items: [{ label: "Delantero", valor: "-- PSI" }, { label: "Trasero", valor: "-- PSI" }] },
+          { icon: "spark", titulo: "Bujía", nota: "Pendiente por verificar.", items: [{ label: "Marca", valor: "Por definir" }, { label: "Tipo", valor: "Por definir" }] }
+        ],
+        repuestos: [
+          { icon: "chain", pieza: "Cadena de Transmisión", original: "Por definir", generico: "Por definir" },
+          { icon: "brake", pieza: "Pastillas Freno Delantero", original: "Por definir", generico: "Por definir" },
+          { icon: "shock", pieza: "Monoshock", original: "Por definir", generico: "Por definir" },
+          { icon: "battery", pieza: "Batería", original: "Por definir", generico: "Por definir" }
+        ]
+      }
+    };
+
+    /* =========================================================
+       ICONOS SVG
+       ========================================================= */
+    const svg = (paths) => `<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+    const ICONS = {
+      valve: svg('<path d="M12 2v10"/><path d="M8 4h8"/><path d="M6 16c0-2.2 2.7-4 6-4s6 1.8 6 4"/><path d="M4 20h16"/>'),
+      oil: svg('<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/>'),
+      tire: svg('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/>'),
+      spark: svg('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'),
+      chain: svg('<rect x="2" y="8" width="9" height="8" rx="4"/><rect x="13" y="8" width="9" height="8" rx="4"/><path d="M8 12h8"/>'),
+      brake: svg('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M7 5.5A8 8 0 0 0 5 9"/><path d="M5 12h0M19 12h0M12 5h0M12 19h0"/>'),
+      shock: svg('<path d="M12 2v3M12 19v3"/><rect x="9" y="5" width="6" height="4" rx="1"/><path d="M8 11l8 2-8 2 8 2"/><rect x="9" y="17" width="6" height="2" rx="1"/>'),
+      battery: svg('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V4h3v3M14 7V4h3v3"/><path d="M7 13h3M15.5 11.5v3M14 13h3"/>'),
+      gear: svg('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>'),
+      wrench: svg('<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>')
+    };
+
+    // Asigna un icono según palabras clave del texto (pieza, categoría o especificación)
+    const ICON_RULES = [
+      [/valvul/, "valve"],
+      [/aceite/, "oil"],
+      [/rueda|caucho|tripa/, "tire"],
+      [/bujia|cdi|carburador/, "spark"],
+      [/bateria/, "battery"],
+      [/arrastre|cadena|corona|pinon|rodamiento/, "chain"],
+      [/fren|caliper|pastilla/, "brake"],
+      [/monoshock|estabiliz|barra|pista|rolinera|eje/, "shock"],
+      [/rendimiento|clutch|crochera|filtro|guaya|martillo/, "gear"]
+    ];
+    const iconFor = (texto) => {
+      const t = String(texto).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const rule = ICON_RULES.find(([re]) => re.test(t));
+      return ICONS[rule ? rule[1] : "wrench"];
+    };
+
+    /* =========================================================
+       ELEMENTOS DOM
+       ========================================================= */
+    const $ = (id) => document.getElementById(id);
+    const els = {
+      select: $("moto-select"),
+      brand: $("moto-brand"), name: $("moto-name"), desc: $("moto-desc"),
+      badges: $("moto-badges"), alert: $("placeholder-alert"), hero: $("moto-hero"),
+      optimas: $("optimas-grid"), repuestos: $("repuestos-grid"), mantenimiento: $("mantenimiento-content"),
+      formModelo: $("form-modelo"), formModeloLabel: $("form-modelo-label"),
+      tabs: document.querySelectorAll(".tab-btn"),
+      buscador: $("buscador-repuestos"), limpiar: $("buscador-limpiar"),
+      contador: $("buscador-contador"), sinResultados: $("sin-resultados"), sinResultadosTerm: $("sin-resultados-term"),
+      toast: $("toast")
+    };
+
+    const escapeHTML = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    // Normaliza texto: minúsculas y sin acentos ("Batería" -> "bateria")
+    const normalizar = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+    /* =========================================================
+       RENDER
+       ========================================================= */
+    // Divide valores con varias opciones ("A / B") en líneas separadas
+    const opciones = (valor) => String(valor).split(/\s+\/\s+/).filter(Boolean);
+
+    function renderOptimas(list) {
+      els.optimas.innerHTML = list.map((o, i) => {
+        // Formato simple: { item, valor }
+        if (o.item) {
+          return `
+        <article class="card filtrable animate-fadeUp rounded-2xl border border-white/10 bg-asphalt-900/80 p-5" style="animation-delay:${i * 60}ms"
+          data-search="${escapeHTML(normalizar([o.item, o.valor].join(' ')))}">
+          <header class="flex items-center gap-3">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blood-600/15 text-blood-500 ring-1 ring-blood-600/30">${o.icon ? ICONS[o.icon] : iconFor(o.item)}</span>
+            <h3 class="font-bold text-white">${escapeHTML(o.item)}</h3>
+          </header>
+          <ul class="mt-4 space-y-2">
+            ${opciones(o.valor).map(v => `
+              <li class="rounded-xl border border-white/5 bg-asphalt-950/70 px-3 py-2.5 text-sm font-semibold text-white">${escapeHTML(v)}</li>`).join("")}
+          </ul>
+        </article>`;
+        }
+        // Formato detallado: { titulo, nota, items[] }
+        return `
+        <article class="card filtrable animate-fadeUp rounded-2xl border border-white/10 bg-asphalt-900/80 p-5" style="animation-delay:${i * 60}ms"
+          data-search="${escapeHTML(normalizar([o.titulo, o.nota, ...o.items.flatMap(it => [it.label, it.valor])].join(' ')))}">
+          <header class="flex items-center gap-3">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blood-600/15 text-blood-500 ring-1 ring-blood-600/30">${o.icon ? ICONS[o.icon] : iconFor(o.titulo)}</span>
+            <div>
+              <h3 class="font-bold text-white">${escapeHTML(o.titulo)}</h3>
+              <p class="text-xs text-zinc-500">${escapeHTML(o.nota || "")}</p>
+            </div>
+          </header>
+          <dl class="mt-4 grid grid-cols-2 gap-2">
+            ${o.items.map(it => `
+              <div class="rounded-xl border border-white/5 bg-asphalt-950/70 px-3 py-2.5">
+                <dt class="text-[10px] font-bold uppercase tracking-[.2em] text-zinc-500">${escapeHTML(it.label)}</dt>
+                <dd class="mt-0.5 font-display text-2xl tracking-wide text-white">${escapeHTML(it.valor)}</dd>
+              </div>`).join("")}
+          </dl>
+        </article>`;
+      }).join("");
+    }
+
+    function renderRepuestoCard(r, i) {
+      const original = r.original ? `
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/5 bg-asphalt-950/70 px-3 py-2.5">
+              <span class="flex shrink-0 items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-zinc-500"><span class="h-2 w-2 rounded-full bg-white"></span>Original</span>
+              <span class="text-right text-sm font-medium text-zinc-300">${escapeHTML(r.original)}</span>
+            </div>` : "";
+      return `
+        <article class="card filtrable animate-fadeUp rounded-2xl border border-white/10 bg-asphalt-900/80 p-5" style="animation-delay:${Math.min(i, 10) * 50}ms"
+          data-search="${escapeHTML(normalizar([r.categoria, r.pieza, r.generico, r.original].filter(Boolean).join(' ')))}">
+          <header class="flex items-center gap-3">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/5 text-white ring-1 ring-white/10">${r.icon ? ICONS[r.icon] : iconFor(r.pieza + " " + (r.categoria || ""))}</span>
+            <h3 class="font-bold text-white">${escapeHTML(r.pieza)}</h3>
+          </header>
+          <div class="mt-4 space-y-2">${original}
+            <div class="rounded-xl border border-blood-600/30 bg-blood-900/30 px-3 py-2.5">
+              <span class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-blood-400"><span class="h-2 w-2 rounded-full bg-blood-500"></span>Genérico compatible</span>
+              <ul class="mt-1.5 space-y-1">
+                ${opciones(r.generico).map(g => `<li class="text-sm font-bold text-white">${escapeHTML(g)}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function renderRepuestos(list) {
+      // Agrupar por categoría (los repuestos sin categoría van a "General")
+      const grupos = list.reduce((acc, r) => {
+        const cat = r.categoria || "General";
+        (acc[cat] = acc[cat] || []).push(r);
+        return acc;
+      }, {});
+
+      let idx = 0;
+      els.repuestos.innerHTML = Object.entries(grupos).map(([cat, items]) => `
+        <div class="grupo-repuestos">
+          <div class="mb-3 flex items-center gap-3">
+            <span class="grid h-8 w-8 place-items-center rounded-lg bg-blood-600 text-white shadow-blood [&>svg]:h-4 [&>svg]:w-4">${iconFor(cat)}</span>
+            <h3 class="font-display text-2xl tracking-wider text-white">${escapeHTML(cat)}</h3>
+            <span class="contador-grupo rounded-full bg-white/5 px-2 py-0.5 text-[11px] font-bold text-zinc-400">${items.length}</span>
+            <span class="h-px flex-1 bg-gradient-to-r from-blood-600/50 to-transparent"></span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            ${items.map(r => renderRepuestoCard(r, idx++)).join("")}
+          </div>
+        </div>`).join("");
+    }
+
+    function renderMoto(key) {
+      const moto = motoDatabase[key];
+      if (!moto) return;
+
+      els.brand.textContent = moto.marca;
+      els.name.textContent = moto.nombre;
+      els.desc.textContent = moto.descripcion;
+      els.badges.innerHTML = moto.badges.map(b =>
+        `<span class="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-zinc-300">${escapeHTML(b)}</span>`
+      ).join("");
+      els.alert.classList.toggle("hidden", !moto.placeholder);
+
+      // Reiniciar animación del hero
+      els.hero.classList.remove("animate-fadeUp"); void els.hero.offsetWidth; els.hero.classList.add("animate-fadeUp");
+
+      renderOptimas(moto.optimas);
+      renderRepuestos(moto.repuestos);
+      filtrarTabActiva();
+
+      els.formModelo.value = key;
+      els.formModeloLabel.textContent = moto.nombre;
+      document.title = `${moto.nombre} | MotoData VE`;
+      history.replaceState(null, "", `#${key}`);
+    }
+
+    /* =========================================================
+       TABS
+       ========================================================= */
+    let tabActiva = "repuestos";
+
+    function activateTab(name) {
+      tabActiva = name;
+      els.tabs.forEach(btn => {
+        const active = btn.dataset.tab === name;
+        btn.setAttribute("aria-selected", String(active));
+        btn.classList.toggle("bg-asphalt-800", active);
+        $(btn.getAttribute("aria-controls")).classList.toggle("hidden", !active);
+      });
+      filtrarTabActiva();
+    }
+    els.tabs.forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
+
+    /* =========================================================
+       BUSCADOR RÁPIDO (filtro en tiempo real sobre la pestaña activa)
+       ========================================================= */
+    function filtrarTabActiva() {
+      const termino = normalizar(els.buscador.value);
+      const palabras = termino.split(/\s+/).filter(Boolean);
+      const grid = { repuestos: els.repuestos, optimas: els.optimas, mantenimiento: els.mantenimiento }[tabActiva];
+      const items = grid.querySelectorAll(".filtrable");
+      let visibles = 0;
+
+      items.forEach(item => {
+        const texto = item.dataset.search || "";
+        const coincide = palabras.every(p => texto.includes(p));
+        item.classList.toggle("hidden", !coincide);
+        if (coincide) visibles++;
+      });
+
+      // Ocultar categorías sin coincidencias y actualizar su contador
+      grid.querySelectorAll(".grupo-repuestos").forEach(grupo => {
+        const total = grupo.querySelectorAll(".filtrable").length;
+        const vis = grupo.querySelectorAll(".filtrable:not(.hidden)").length;
+        grupo.classList.toggle("hidden", vis === 0);
+        const badge = grupo.querySelector(".contador-grupo");
+        if (badge) badge.textContent = termino ? `${vis}/${total}` : total;
+      });
+
+      els.limpiar.classList.toggle("hidden", !termino);
+      els.sinResultados.classList.toggle("hidden", visibles > 0 || !termino);
+      els.sinResultadosTerm.textContent = els.buscador.value.trim();
+      els.contador.textContent = termino
+        ? `${visibles} de ${items.length} resultado${items.length === 1 ? "" : "s"}`
+        : "";
+    }
+
+    els.buscador.addEventListener("input", filtrarTabActiva);
+    els.buscador.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { els.buscador.value = ""; filtrarTabActiva(); }
+    });
+    els.limpiar.addEventListener("click", () => {
+      els.buscador.value = "";
+      filtrarTabActiva();
+      els.buscador.focus();
+    });
+
+    /* =========================================================
+       MODAL LEGAL (Política de Privacidad / Términos de Uso)
+       ========================================================= */
+    const legalModal = $("legal-modal");
+    const LEGAL_TITULOS = { privacidad: "Política de Privacidad", terminos: "Términos de Uso" };
+
+    function abrirLegal(tipo) {
+      if (!LEGAL_TITULOS[tipo]) return;
+      $("legal-title").textContent = LEGAL_TITULOS[tipo];
+      legalModal.querySelectorAll("[data-legal-doc]").forEach(doc =>
+        doc.classList.toggle("hidden", doc.dataset.legalDoc !== tipo));
+      $("legal-body").scrollTop = 0;
+      if (!legalModal.open) {
+        if (typeof legalModal.showModal === "function") legalModal.showModal();
+        else legalModal.setAttribute("open", "");
+      }
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function cerrarLegal() {
+      if (typeof legalModal.close === "function") legalModal.close();
+      else legalModal.removeAttribute("open");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    document.querySelectorAll("[data-legal]").forEach(link =>
+      link.addEventListener("click", (e) => { e.preventDefault(); abrirLegal(link.dataset.legal); }));
+    $("legal-cerrar").addEventListener("click", cerrarLegal);
+    $("legal-entendido").addEventListener("click", cerrarLegal);
+    legalModal.addEventListener("close", () => document.body.classList.remove("overflow-hidden"));
+    // Cerrar al hacer clic fuera del contenido (en el backdrop)
+    legalModal.addEventListener("click", (e) => { if (e.target === legalModal) cerrarLegal(); });
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+    let toastTimer;
+    function showToast(msg) {
+      els.toast.textContent = msg;
+      els.toast.classList.remove("opacity-0", "translate-y-6");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => els.toast.classList.add("opacity-0", "translate-y-6"), 3500);
+    }
+
+    /* =========================================================
+       FORMULARIO (envío AJAX con fallback a POST nativo)
+       ========================================================= */
+    const form = $("aporte-form");
+    const btnEnviar = $("btn-enviar");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const original = btnEnviar.innerHTML;
+      btnEnviar.disabled = true;
+      btnEnviar.innerHTML = "Enviando...";
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.reset();
+          els.formModelo.value = els.select.value;
+          showToast("✅ ¡Gracias! Tu aporte fue enviado.");
+        } else {
+          showToast("⚠️ " + (data.message || "No se pudo enviar el aporte."));
+        }
+      } catch (err) {
+        showToast("⚠️ Error de conexión. Intenta de nuevo.");
+      } finally {
+        btnEnviar.disabled = false;
+        btnEnviar.innerHTML = original;
+      }
+    });
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    els.select.addEventListener("change", (e) => renderMoto(e.target.value));
+    $("year").textContent = new Date().getFullYear();
+
+    const initial = location.hash.replace("#", "");
+    if (motoDatabase[initial]) els.select.value = initial;
+
+    // Indexar las secciones de la guía de mantenimiento para el buscador
+    els.mantenimiento.querySelectorAll(".filtrable").forEach(sec => {
+      sec.dataset.search = normalizar(sec.textContent).replace(/\s+/g, " ");
+    });
+
+    activateTab("repuestos");
+    renderMoto(els.select.value);
+
+    // Enlaces directos: /#privacidad o /#terminos abren el modal
+    if (LEGAL_TITULOS[initial]) abrirLegal(initial);
+  </script>
+
+  <!-- ===================== MODAL INSTALAR APP ===================== -->
+  <div id="installModal" role="dialog" aria-modal="true" aria-labelledby="installTitle"
+    class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex justify-center items-center p-4"
+    onclick="if (event.target === this) closeInstallModal()">
+    <div class="bg-[#111111] border border-zinc-800 rounded-2xl p-6 text-center shadow-2xl max-w-sm w-full animate-fadeUp">
+      <span
+        class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-blood-500 to-blood-800 text-white shadow-blood">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="2.5" />
+          <path d="M12 7v7m-3-3 3 3 3-3" />
+          <path d="M10.5 18.5h3" />
+        </svg>
+      </span>
+      <h2 id="installTitle" class="font-display text-3xl tracking-wide text-white mb-3">Instalar <span
+          class="text-red-500">MotoData</span> VE</h2>
+      <p id="installInstructions" class="text-zinc-400 text-sm mb-6"></p>
+      <button type="button" onclick="closeInstallModal()"
+        class="w-full rounded-xl bg-red-600 hover:bg-red-500 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-blood transition active:scale-[.98]">
+        Entendido
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================== SCRIPT INSTALAR APP (PWA) ===================== -->
+  <script>
+    // Evento de instalación nativa (Chrome/Edge/Android). Solo se dispara si el sitio es instalable.
+    let deferredPrompt;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();      // Evita el mini-banner automático del navegador
+      deferredPrompt = e;      // Se guarda para lanzarlo al tocar "Instalar App"
+    });
+
+    // Cuando la App se instala, se limpia el evento y se oculta el botón
+    window.addEventListener("appinstalled", () => {
+      deferredPrompt = null;
+      closeInstallModal();
+      document.getElementById("btn-instalar")?.classList.add("hidden");
+    });
+
+    // Si ya se está usando como App instalada, no tiene sentido mostrar el botón
+    if (window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true) {
+      document.getElementById("btn-instalar")?.classList.add("hidden");
+    }
+
+    const MENSAJES_INSTALACION = {
+      iosSafari: "Para instalar la App, toca el ícono de Compartir (el cuadro con flecha) en la barra inferior de Safari y selecciona 'Agregar a inicio'.",
+      // El dominio se toma de la URL actual, así funciona igual en workers.dev o en un dominio propio
+      iosOtroNavegador: `En iPhone, Apple solo permite instalar aplicaciones a través de su navegador nativo. Por favor, abre ${location.host} en Safari para poder instalarla.`,
+      android: "Para instalar la App, toca los 3 puntos (⋮) arriba a la derecha en tu navegador y selecciona 'Agregar a la pantalla principal'."
+    };
+
+    async function handleInstallClick() {
+      // 1) Android compatible: aviso nativo de instalación
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;   // "accepted" o "dismissed"
+        deferredPrompt = null;             // El evento solo puede usarse una vez
+        return;
+      }
+
+      const ua = (navigator.userAgent || "").toLowerCase();
+      // iPadOS moderno se identifica como "Macintosh": se detecta por la pantalla táctil
+      const esIOS = /iphone|ipad|ipod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+      // 2) iOS
+      if (esIOS) {
+        // Chrome (crios), Firefox (fxios), Edge (edgios), Opera (opios) y navegadores internos
+        // de Facebook/Instagram no son Safari
+        const noEsSafari = /crios|fxios|edgios|opios|fban|fbav|instagram/.test(ua);
+        openInstallModal(noEsSafari ? MENSAJES_INSTALACION.iosOtroNavegador : MENSAJES_INSTALACION.iosSafari);
+        return;
+      }
+
+      // 3) Android (u otro navegador) sin prompt automático: instrucciones de los 3 puntos
+      openInstallModal(MENSAJES_INSTALACION.android);
+    }
+
+    function openInstallModal(mensaje = MENSAJES_INSTALACION.android) {
+      document.getElementById("installInstructions").textContent = mensaje;
+      document.getElementById("installModal").classList.remove("hidden");
+    }
+
+    function closeInstallModal() {
+      document.getElementById("installModal").classList.add("hidden");
+    }
+
+    // Cerrar con la tecla Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeInstallModal();
+    });
+  </script>
+</body>
+
+</html>
